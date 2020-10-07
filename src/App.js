@@ -1,25 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+//import Header from './CommonComponents/Header/Header';
+import Header from './CommonComponents/Header';  //this way index.jsx inside "Header" folder is imported by default & we can can export Header.jsx from index.jsx
+import Sidebar from './CommonComponents/Sidebar'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+// to use router, wrap the whole application inside Router tag
+// Replace the variable component with switch tag having self closing Route tags having path(relative url) & component to render
+// React see for prefix '/' in every path & renders Home component for every route without looking for the name following. 
+// Thus we we use "exact" attribute with home component to differentiate between paths. 
+    <Router>
+      <div className='main-div'>
+        <Header />
+        <div classNamee="body">
+          <Sidebar />
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/contactus" component={ContactUs}/>
+            <Route path="/propsAndState" component={PropsAndState}/>
+            <Route path="/lifeCycle" component={LifeCycleMethods}/>
+            <Route path="/functionalComponents" component={Container}/>
+            <Route path="/hooks" component={Hooks}/>
+            <Route path="/redux" component={ReduxAndReducer}/>
+            <Route path="/formHandling" component={FormHandling}/>
+            <Route path="/todolist" component={ToDoList}/>
+            <Route path="/weather" component={WeatherApp}/>
+            <Route path="/componentdemo" component={ComponentDemo}/>
+          </Switch>
+        </div>
+      
+      </div>
+    </Router>
+    
   );
 }
 
