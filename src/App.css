@@ -40,3 +40,14 @@
   color:#BF9515;
   border: 0.1vw white solid;
 }
+.footer{
+  position: relative;
+  background-color: black;
+  height: 3vw;
+}
+.footer p{
+  position: absolute;
+  margin: auto;
+  font-size: 0.2vw;
+  color: white;
+}
