@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 //import Header from './CommonComponents/Header/Header';
 import Header from './CommonComponents/Header';  //this way index.jsx inside "Header" folder is imported by default & we can can export Header.jsx from index.jsx
@@ -14,9 +15,11 @@ function App() {
 // React see for prefix '/' in every path & renders Home component for every route without looking for the name following. 
 // Thus we we use "exact" attribute with home component to differentiate between paths. 
     <Router>
-      <div className='main-div'>
-        <Header />
-        <div classNamee="body">
+      <div className='main-div'>  
+        <Link to="/">
+          <Header />
+        </Link>
+        <div className="body">
           <Sidebar />
           <Switch>
             <Route path="/" exact component={Home}/>
